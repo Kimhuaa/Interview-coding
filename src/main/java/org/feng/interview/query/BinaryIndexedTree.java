@@ -1,4 +1,4 @@
-package org.feng.interview.sort;
+package org.feng.interview.query;
 
 /**
  * @Description 树状数组

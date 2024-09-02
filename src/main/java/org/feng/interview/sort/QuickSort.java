@@ -1,17 +1,16 @@
 package org.feng.interview.sort;
 
 /**
- * @Description 快速排序（非稳定排序）
+ * @Description 快速排序（非稳定排序，相同元素的相对位置会变化），属于原地排序，操作原数组；执行哨兵划分操作时，系统可将整个子数组加载到缓存
  * @Author Zhu XueFeng
  * @Date 2024/8/7 15:00
  */
 public class QuickSort {
-    public static void main(String[] args) {
-        int[] nums = {-3, 2, 4, 7, 3, 1, 3, 9, 5};
-        quickSort(nums, 0, nums.length - 1);
-        for (int n : nums) System.out.print(n + " ");
-    }
 
+    /**
+    * 平均时间复杂度 O(NlogN), 数组完全倒序时-最坏时间复杂度  O(n^2)
+    * 最坏情况：每轮哨兵划分操作都将长度为 n 的数组划分为长度为 0 和 n - 1的两个子数组
+    */
     static void quickSort(int[] nums, int l, int r) {
         if (l >= r) return; // 子数组长度为1时递归终止
         int mid = choose(nums, l, (l + r) / 2, r);
@@ -48,5 +47,11 @@ public class QuickSort {
         } else {
             return r;
         }
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {-3, 2, 4, 7, 3, 1, 3, 9, 5};
+        quickSort(nums, 0, nums.length - 1);
+        for (int n : nums) System.out.print(n + " ");
     }
 }
